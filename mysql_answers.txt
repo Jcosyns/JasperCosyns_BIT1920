@@ -1,0 +1,65 @@
+Question:4
+-----------
+
+mysql> select gene_name, (seq_region_end-seq_region_start+1) as length from gene order by length DESC limit 1 offset 2;
++-----------+---------+
+| gene_name | length  |
++-----------+---------+
+| PARP1     | 2493040 |
++-----------+---------+
+1 row in set (0.08 sec)
+
+
+-----------
+Question:5
+-----------
+
+
+
+-----------
+Question:6
+-----------
+
+mysql> select chromosome, count(gene_id) as count from gene where description rlike "breast cancer" group by chromosome order by count  desc limit 1;
++------------+-------+
+| chromosome | count |
++------------+-------+
+| 16         |     2 |
++------------+-------+
+1 row in set (0.19 sec)
+
+mysql> select chromosome, count(transcript_id) as tscount from gene g join transcript t on g.gene_id=t.gene_id where chromosome = "16";
++------------+---------+
+| chromosome | tscount |
++------------+---------+
+| 16         |    3636 |
++------------+---------+
+1 row in set (0.04 sec)
+
+
+-----------
+Question 7
+-----------
+
+mysql> select count(*) from exon;
++----------+
+| count(*) |
++----------+
+|   642590 |
++----------+
+1 row in set (0.33 sec)
+
+
+mysql> select count(*) from exon_transcript;
+
++----------+
+| count(*) |
++----------+
+|  1178393 |
++----------+
+1 row in set (0.11 sec)
+
+The reason why is because one transcript can have multiple exons and the relation between transcript and exon is shown in the cross reference table exon_transcript. The exon table only contains the ID's of the exons and information about it. 
+
+
+

@@ -1,0 +1,32 @@
+Rest API Questions
+
+Question 12
+-----------
+
+curl 'https://rest.ensembl.org/variation/danio_rerio/rs499899635?' -H 'Content-type:application/json'
+
+{"minor_allele":null,"name":"rs499899635","evidence":[],"most_severe_consequence":"intergenic_variant","source":"Variants (including SNPs and indels) imported from dbSNP (mapped to GRCz11)","MAF":null,"ambiguity":"Y","ancestral_allele":null,"var_class":"SNP","synonyms":[],"mappings":[{"seq_region_name":"10","location":"10:10138412-10138412","start":10138412,"coord_system":"chromosome","end":10138412,"allele_string":"T/C","assembly_name":"GRCz11","strand":1}]}
+
+
+question 13
+-----------
+
+curl 'https://rest.ensembl.org/xrefs/symbol/mus_musculus/Notch1'
+<html><title>EnsEMBL::REST</title><body><pre>--- 
+- 
+  id: ENSMUSG00000026923
+  type: gene
+</pre></body></html>[guest@localhost exercises]$ 
+
+'https://rest.ensembl.org/sequence/id/ENSMUSG00000026923?content-type=text/x-fasta'
+>ENSMUSG00000026923.15 chromosome:GRCm38:2:26457903:26516663:-1
+
+--> 2:26457903:26516663
+
+curl 'https://rest.ensembl.org/sequence/region/mus_musculus/chr2:26516663-26516763?content-type=text/x-fasta'
+GGAAGATCACCACCCACCAGCCATGTGGGTGGGAAGCTGCAACCTTTTGCTCTGGCTGGA
+TTCTGGGTCTGTCTCTGGGTCACTGAGTGGGCTGGGGTGAG
+
+
+
+

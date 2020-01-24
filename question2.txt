@@ -1,0 +1,25 @@
+Question2
+----------
+
+UNF: (personnel number, name, date of birth, lab code, lab name, research code, research description, research supervisor)
+
+1NF: (personnel number, name, date of birth, lab code, lab name, research code, research description, research supervisor)
+
+Personnel number is solely dependant on: name and date of birth. A person can work on a number of projects and be in different labs for projects .
+A lab usually hosts different research projects and the lab code is solely dependant on the name.
+On a research project is a supervisor and usually has a description. Furthermore, on a reasearch usually works a number of personnel
+
+2NF: Personnel( personnel number, name, date of birth)
+     Lab( lab code, lab name, research code)
+     Research( Research code, research description, research supervisor, personnel number)
+
+A lab or even multiple labs can host multiple researches so we need a cross ref table.
+A person can research multiple researches and a research has multiple personnel
+-->ref table
+3NF: Personnel( personnel number, name, date of birth)
+     Lab( lab code, lab name)
+     refTable lab and research(lab code, research code)
+     refTable Personnel and Research (personnel number, research code)
+     Research( Research code, research description, research supervisor)
+
+BCNF: see 3NF
